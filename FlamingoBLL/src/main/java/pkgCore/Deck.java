@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Deck {
 
 	//	DONE: Add 'cards' attribute that is an ArrayList of Card
-	private ArrayList<Card> cards;
+	private ArrayList<Card> cards = new ArrayList<Card>();
 	
 	
 	//	DONE: Add a contructor that passes in the number of decks, and then populates
