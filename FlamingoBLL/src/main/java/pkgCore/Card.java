@@ -1,19 +1,19 @@
 package pkgCore;
+
 import pkgEnum.*;
+
 public class Card implements Comparable {
 	
 	//	DONE: Card has two attributes, eRank and eSuit, add these attributes
-	private eRank rank;
 	private eSuit suit;
-	
+	private eRank rank;
 	
 	//	DONE: Build a constructor for Card passing in eRank and eSuit
-	public Card(eRank rank, eSuit suit)
+	public Card(eSuit suit, eRank rank)
 	{
-		this.rank = rank;
 		this.suit = suit;
+		this.rank = rank;
 	}
-	
 	
 	@Override
 	public int compareTo(Object o) {
