@@ -77,50 +77,131 @@ public class HandTest {
 	@Test
 	public void test1() {
 		
-		// TODO: Test 2-3-4, score should be 9
+		// DONE: Test 2-3-4, score should be 9
 
-		ArrayList<Card> cards = new ArrayList<Card>();
+		Hand h = new Hand();
 		
-		// TODO:  REMOVE THE COMMENTS FROM THE NEXT THREE LINES
+		// DONE:  REMOVE THE COMMENTS FROM THE NEXT THREE LINES
 		
-		//cards.add(new Card(eSuit.CLUBS,eRank.TWO));
-		//cards.add(new Card(eSuit.CLUBS,eRank.THREE));
-		//cards.add(new Card(eSuit.CLUBS,eRank.FOUR));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.TWO));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.THREE));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.FOUR));
 		
-		int[] score = HandHelper(cards);
+		//int[] score = HandHelper(cards);
 		
-		//	TODO: Check Score to make sure it's right.  Something close to this:
-		assertEquals(score[0],9);		
+		// DONE: Check Score to make sure it's right.  Something close to this:
+		assertEquals(9, h.ScoreHand());		
 	}
 
 	@Test
 	public void test2() {
 		// TODO: Test 2-3-J, score should be 15
+		
+		Hand h = new Hand();
+		
+		// DONE:  REMOVE THE COMMENTS FROM THE NEXT THREE LINES
+		
+		h.AddCard(new Card(eSuit.CLUBS,eRank.TWO));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.THREE));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.JACK));
+		
+		//int[] score = HandHelper(cards);
+		
+		// DONE: Check Score to make sure it's right.  Something close to this:
+		assertEquals(15, h.ScoreHand());
 	}
 
 	@Test
 	public void test3() {
 		// TODO: Test 2-3-J-J, score should be 25
+		
+		Hand h = new Hand();
+		
+		// DONE:  REMOVE THE COMMENTS FROM THE NEXT THREE LINES
+		
+		h.AddCard(new Card(eSuit.CLUBS,eRank.TWO));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.THREE));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.JACK));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.JACK));
+		
+		//int[] score = HandHelper(cards);
+		
+		// DONE: Check Score to make sure it's right.  Something close to this:
+		assertEquals(25, h.ScoreHand());	
 	}
 
 	@Test
 	public void test4() {
 		// TODO: Test J-A, score should be 21
+		
+		Hand h = new Hand();
+		
+		// DONE:  REMOVE THE COMMENTS FROM THE NEXT THREE LINES
+		
+		h.AddCard(new Card(eSuit.CLUBS,eRank.JACK));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.ACE));
+		
+		//int[] score = HandHelper(cards);
+		
+		// DONE: Check Score to make sure it's right.  Something close to this:
+		assertEquals(21,h.ScoreHand());	
 	}
 
 	@Test
 	public void test5() {
 		// TODO: Test J-A-A, score should be 12
+		
+		Hand h = new Hand();
+		
+		// DONE:  REMOVE THE COMMENTS FROM THE NEXT THREE LINES
+		
+		h.AddCard(new Card(eSuit.CLUBS,eRank.JACK));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.ACE));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.ACE));
+		
+		//int[] score = HandHelper(cards);
+		
+		// DONE: Check Score to make sure it's right.  Something close to this:
+		assertEquals(12,h.ScoreHand());
 	}
 
 	@Test
 	public void test6() {
 		// TODO: Test J-A-A-A, score should be 13
+		
+		Hand h = new Hand();
+		
+		// DONE:  REMOVE THE COMMENTS FROM THE NEXT THREE LINES
+		
+		h.AddCard(new Card(eSuit.CLUBS,eRank.JACK));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.ACE));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.ACE));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.ACE));
+		
+		//int[] score = HandHelper(cards);
+		
+		// DONE: Check Score to make sure it's right.  Something close to this:
+		assertEquals(13, h.ScoreHand());	
 	}
 	
 	@Test
 	public void test7() {
 		//	TODO: Test A-A-A-A-2, score should be 6 or 16
+		
+		Hand h = new Hand();
+		
+		// DONE:  REMOVE THE COMMENTS FROM THE NEXT THREE LINES
+		
+		h.AddCard(new Card(eSuit.CLUBS,eRank.ACE));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.ACE));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.ACE));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.ACE));
+		h.AddCard(new Card(eSuit.CLUBS,eRank.TWO));
+		
+		//int[] score = HandHelper(cards);
+		
+		// DONE: Check Score to make sure it's right.  Something close to this:
+		assertTrue(h.ScoreHand() == 6 || h.ScoreHand() == 16);
 	}
 
 }

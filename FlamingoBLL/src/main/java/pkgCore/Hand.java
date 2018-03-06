@@ -26,9 +26,9 @@ public class Hand {
 		//iScore[1] = 10;
 		
 		this.iScore = 0;
+		int aceCount = 0;
 		
 		Collections.sort(cards);
-		
 		
 		for (Card c: cards)
 		{
@@ -40,7 +40,22 @@ public class Hand {
 			//			J-Q	- score = 20
 			//			8-A = score = 9 or 19
 			//			4-A = score = 5 or 15
-			this.iScore += c.getRank().getiRankNbr();
+			
+			if (c.getRank().getiRankNbr() < 11)
+				this.iScore += c.getRank().getiRankNbr();
+			else if (c.getRank().getiRankNbr() < 14)
+				this.iScore += 10;
+			else
+				aceCount++;
+		}
+		
+		for (int i = 0; i < aceCount; i++)
+		{
+			int temp = this.iScore + 11;
+			if (temp > 21 || aceCount > 1)
+				this.iScore++;
+			else
+				this.iScore += 11;
 		}
 		
 		return this.iScore;
@@ -52,7 +67,7 @@ public class Hand {
 		cards.add(d.draw());
 	}
 	
-	private void AddCard(Card c)
+	public void AddCard(Card c)
 	{
 		cards.add(c);
 	}
