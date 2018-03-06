@@ -108,4 +108,9 @@ public class Deck {
 	{
 		return cards.remove(cards.size() - 1);
 	}
+	
+	public int getSize()
+	{
+		return cards.size();
+	}
 }
