@@ -67,7 +67,7 @@ public class Hand {
 		cards.add(d.draw());
 	}
 	
-	public void AddCard(Card c)
+	private void AddCard(Card c)
 	{
 		cards.add(c);
 	}
