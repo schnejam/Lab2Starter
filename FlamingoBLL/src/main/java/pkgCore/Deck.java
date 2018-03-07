@@ -3,6 +3,7 @@ package pkgCore;
 import pkgEnum.eSuit;
 import pkgEnum.eRank;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
 
@@ -23,82 +24,18 @@ public class Deck {
 		eSuit suit = eSuit.HEARTS;
 		eRank rank = eRank.ONE;
 		
-		// Deck quantity
 		for (int i = 0; i < deckNum; i++)
 		{
-			// Suits in the deck
-			for (int j = 0; j < 4; j++)
+			for (eSuit eSuit: eSuit.values())
 			{
-				switch(j)
+				for (eRank eRank: eRank.values())
 				{
-				case 0:
-					suit = eSuit.HEARTS;
-					break;
-				case 1:
-					suit = eSuit.CLUBS;
-					break;
-				case 2:
-					suit = eSuit.DIAMONDS;
-					break;
-				case 3:
-					suit = eSuit.DIAMONDS;
-					break;
-				}
-				
-				// Cards in the suits
-				for (int k = 0; k < 13; k++)
-				{
-					switch(k)
-					{
-					case 0:
-						rank = eRank.ONE;
-						break;
-					case 1:
-						rank = eRank.TWO;
-						break;
-					case 2:
-						rank = eRank.THREE;
-						break;
-					case 3:
-						rank = eRank.FOUR;
-						break;
-					case 4:
-						rank = eRank.FIVE;
-						break;
-					case 5:
-						rank = eRank.SIX;
-						break;
-					case 6:
-						rank = eRank.SEVEN;
-						break;
-					case 7:
-						rank = eRank.EIGHT;
-						break;
-					case 8:
-						rank = eRank.NINE;
-						break;
-					case 9:
-						rank = eRank.TEN;
-						break;
-					case 10:
-						rank = eRank.JACK;
-						break;
-					case 11:
-						rank = eRank.QUEEN;
-						break;
-					case 12:
-						rank = eRank.KING;
-						break;
-					case 13:
-						rank = eRank.ACE;
-						break;
-					}
-					
-					// Add the card to the deck of cards
-					cards.add(new Card(suit, rank));
+					cards.add(new Card(eSuit, eRank));
 				}
 			}
 		}
+		
+		Collections.shuffle(cards);
 	}
 	
 	
