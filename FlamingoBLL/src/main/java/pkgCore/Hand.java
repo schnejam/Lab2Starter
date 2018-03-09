@@ -3,6 +3,8 @@ package pkgCore;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import pkgEnum.eRank;
+
 public class Hand {
 
 	private int iScore;
@@ -20,16 +22,11 @@ public class Hand {
 		// So we will simply score the hand, and return that integer.
 		// Also iScore is already defined as an int attribute.
 		
-		//int [] iScore = new int[2];
-		
-		//iScore[0] = 5;
-		//iScore[1] = 10;
-		
 		this.iScore = 0;
-		int aceCount = 0;
 		
 		Collections.sort(cards);
 		
+		boolean isAce = false;
 		for (Card c: cards)
 		{
 			//	DONE: Determine the score.  
@@ -46,16 +43,16 @@ public class Hand {
 			else if (c.getRank().getiRankNbr() < 14)
 				this.iScore += 10;
 			else
-				aceCount++;
+			{
+				this.iScore++;
+				isAce = true;
+			}
 		}
 		
-		for (int i = 0; i < aceCount; i++)
+		if (isAce)
 		{
-			int temp = this.iScore + 11;
-			if (temp > 21 || aceCount > 1)
-				this.iScore++;
-			else
-				this.iScore += 11;
+			if (this.iScore + 10 <= 21)
+				this.iScore += 10;
 		}
 		
 		return this.iScore;
@@ -72,4 +69,26 @@ public class Hand {
 		cards.add(c);
 	}
 	
+	public boolean CanDealerHit()
+	{
+		if (iScore >= 17)
+			return false;
+		return true;
+	}
+	
+	public boolean CanPlayerDraw()
+	{
+		if (iScore < 21)
+			return true;
+		return false;
+	}
+	
+	public boolean isBlackJack()
+	{
+		int iScore = ScoreHand();
+		
+		if ((iScore == 21) && (cards.size() == 2))
+			return true;
+		return false;
+	}
 }

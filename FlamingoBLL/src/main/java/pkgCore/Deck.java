@@ -19,11 +19,7 @@ public class Deck {
 	
 	//			Deck(2) will create an array of 104 cards.
 	public Deck(int deckNum)
-	{
-		// Variables that will be updated in the loops
-		eSuit suit = eSuit.HEARTS;
-		eRank rank = eRank.ONE;
-		
+	{	
 		for (int i = 0; i < deckNum; i++)
 		{
 			for (eSuit eSuit: eSuit.values())
@@ -38,12 +34,17 @@ public class Deck {
 		Collections.shuffle(cards);
 	}
 	
+	public Deck()
+	{
+		this(1);
+	}
+	
 	
 	//	DONE: Add a draw() method that will take a card from the deck and
 	//			return it to the caller
 	public Card draw()
 	{
-		return cards.remove(cards.size() - 1);
+		return cards.remove(0);
 	}
 	
 	public int getSize()
